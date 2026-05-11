@@ -24,15 +24,17 @@ input_data = pd.DataFrame({
     "courier_experience_years": [courier_experience_years],
     "hour": [hour],
     "weekday": [weekday],
-    "weather_rain": [1 if weather == "rain" else 0],
-    "weather_snow": [1 if weather == "snow" else 0],
-    "traffic_level_low": [1 if traffic_level == "low" else 0],
-    "traffic_level_medium": [1 if traffic_level == "medium" else 0],
-    "restaurant_load_low": [1 if restaurant_load == "low" else 0],
-    "restaurant_load_medium": [1 if restaurant_load == "medium" else 0],
+    "weather": [weather],
+    "traffic_level": [traffic_level],
+    "restaurant_load": [restaurant_load],
 })
 
-input_data = input_data[model.feature_names_in_]
+input_data = pd.get_dummies(input_data, drop_first=True)
+
+input_data = input_data.reindex(
+    columns=model.feature_names_in_,
+    fill_value=0
+)
 
 if st.button("Predict"):
     prediction = model.predict(input_data)[0]
