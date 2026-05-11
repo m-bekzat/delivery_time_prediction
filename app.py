@@ -25,7 +25,7 @@ hour = st.slider(
 )
 
 weekday = st.slider(
-    "Day of Week (0 = Monday, 6 = Sunday)",
+    "Day of Week (1 = Monday, 7 = Sunday)",
     1,
     7,
     1
