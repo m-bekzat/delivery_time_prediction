@@ -17,8 +17,19 @@ courier_experience_years = st.number_input(
     value=2.0,
     step=0.5
 )
-hour = st.slider("Hour", 0, 23, 12)
-weekday = st.slider("Weekday", 0, 6, 1)
+hour = st.slider(
+    "Order Time (Hour of Day)",
+    0,
+    23,
+    12
+)
+
+weekday = st.slider(
+    "Day of Week (0 = Monday, 6 = Sunday)",
+    0,
+    6,
+    1
+)
 
 weather = st.selectbox("Weather", ["sunny", "rain", "snow"])
 traffic_level = st.selectbox("Traffic level", ["low", "medium", "high"])
