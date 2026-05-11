@@ -10,7 +10,13 @@ st.title("Delivery Time Prediction")
 st.write("This app predicts delivery time in minutes.")
 
 distance_km = st.number_input("Distance in km", min_value=1.0, max_value=50.0, value=5.0)
-courier_experience_years = st.number_input("Courier experience years", min_value=0.0, max_value=20.0, value=2.0)
+courier_experience_years = st.number_input(
+    "Courier experience years",
+    min_value=0.0,
+    max_value=20.0,
+    value=2.0,
+    step=0.5
+)
 hour = st.slider("Hour", 0, 23, 12)
 weekday = st.slider("Weekday", 0, 6, 1)
 
